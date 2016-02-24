@@ -78,7 +78,6 @@
 			</a>
 		</li>
 	</ul>
-	<div id="aa">test</div>
 </body>
 <script src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
@@ -88,7 +87,6 @@
 		var imgWidth = $('.tooltips img').width();
 		var imgHeight = $('.tooltips img').height();
 		var line = $('ul li:nth-child(5)').offset().top;
-		console.log(line)
 		$('a.tooltips').mouseover(function(e){
 			var mytitle = $(this).attr('title');
 			$(this).attr('title','');
@@ -107,18 +105,6 @@
 			$(this).attr('title' , mytitle);
 			$('#tooltips').remove();
 		}).mousemove(function(e){
-			// if(e.pageY > 250) {
-			// 	$('#tooltips').css({
-			// 		"left": (e.pageX -200) + "px",
-			// 		"top" : (e.pageY + y - 270) + "px" 
-			// 	}).show('fast');
-			// 	//alert(e.pageY + y - 200);
-			// }else {
-			// 	$('#tooltips').css({
-			// 		"left": (e.pageX + x) + "px",
-			// 		"top" : (e.pageY + y) + "px" 
-			// 	});
-			// }
 			$('#tooltips').css({
 				"left": (e.pageX + x) + "px",
 				"top" : (e.pageY + y) + "px" 
@@ -128,17 +114,6 @@
 			}
 		})
 	});
-	// var t=$('.tooltips').eq(0);
-	// console.log(t.css('visibility')); //visible
-	// if(t.is(":visible")){
-	// 	console.log('success');
-	// }else {
-	// 	console.log('whywhy'); //?????
-	// }
-	// console.log($('#aa').css('visibility')); //visible
-	// if($('#aa').is(':visible')){
-	// 	console.log('why you can');
-	// }
 
 </script>
 </html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tooltips</title>
+</head>
+<style type="text/css">
+	#tooltips {
+		padding: 5px;
+		border: 1px solid #e2e2e2;
+		box-shadow: 1px 1px rgba(0,0,0,.5);
+		border-radius: 5px;
+		position: absolute;
+	}
+</style>
+<body>
+	<a class="tooltips tool" href="#" title="我的提示一" silence="silence">提示一</a>
+	<a class="tooltips" href="#" title="我的提示二">提示二</a>
+</body>
+<script src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+	var title = $('.tool').attr('title');
+	$('.tool').prop('silence',title);
+
+	// $(function(){
+	// 	var x = 10;
+	// 	var y = 20;
+
+	// 	$('a.tooltips').mouseover(function(e){
+	// 		var mytitle = $(this).attr('title');
+	// 		$(this).attr('title','');
+	// 		var $tooltips ='<div id="tooltips">'+ mytitle +'</div';
+	// 		$('body').append($tooltips);
+	// 		$('#tooltips').css({
+	// 			"left": (e.pageX + x) + "px",
+	// 			"top" : (e.pageY + y) + "px" 
+	// 		});
+	// 	}).mouseout(function(){
+	// 		var mytitle = $('#tooltips').text();
+	// 		$(this).attr('title' , mytitle);
+	// 		$('#tooltips').remove();
+	// 	}).mousemove(function(e){
+	// 		$('#tooltips').css({
+	// 			"left": (e.pageX + x) + "px",
+	// 			"top" : (e.pageY + y) + "px" 
+	// 		});
+	// 	})
+	// })
+</script>
+</html>

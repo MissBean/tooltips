@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>tooltips</title>
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	ul {
+		list-style: none;
+		overflow: hidden;
+		width: 900px;
+		margin: 30px auto;
+		padding: 20px 20px 0;
+		border: 2px solid seagreen;
+	}
+	li {
+		float: left;
+		margin-right: 20px;
+		border:2px solid #c56;
+		margin-bottom: 20px;
+	}
+	img{ border: none; display: block;}
+	#tooltips {
+		position: absolute;		
+		box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+		border-radius: 5px;
+		padding-bottom: 10px;
+
+		background: #000;
+		color: #fff;
+		text-align: center;
+	}
+</style>
+<body>
+	<ul>
+		<li>
+			<a class="tooltips" href="images/spring.jpg" title="春天">
+				<img src="images/spring.jpg" alt="春天">
+			</a>
+		</li>
+		<li>
+			<a class="tooltips" href="images/summer.jpg" title="夏天">
+				<img src="images/summer.jpg" alt="夏天">
+			</a>
+		</li>
+		<li>
+			<a class="tooltips" href="images/autumn.jpg" title="秋天">
+				<img src="images/autumn.jpg" alt="秋天">
+			</a>
+		</li>
+		<li>
+			<a class="tooltips" href="images/winter.jpg" title="冬天">
+				<img src="images/winter.jpg" alt="冬天">
+			</a>
+		</li>
+		<li>
+			<a class="tooltips" href="images/spring.jpg" title="春天">
+				<img src="images/spring.jpg" alt="春天">
+			</a>
+		</li>
+		<li>
+			<a class="tooltips" href="images/summer.jpg" title="夏天">
+				<img src="images/summer.jpg" alt="夏天">
+			</a>
+		</li>
+		<li>
+			<a class="tooltips" href="images/autumn.jpg" title="秋天">
+				<img src="images/autumn.jpg" alt="秋天">
+			</a>
+		</li>
+		<li>
+			<a class="tooltips" href="images/winter.jpg" title="冬天">
+				<img src="images/winter.jpg" alt="冬天">
+			</a>
+		</li>
+	</ul>
+	<div id="aa">test</div>
+</body>
+<script src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var x = 10;
+		var y = 20;
+		var imgWidth = $('.tooltips img').width();
+		var imgHeight = $('.tooltips img').height();
+		var line = $('ul li:nth-child(5)').offset().top;
+		console.log(line)
+		$('a.tooltips').mouseover(function(e){
+			var mytitle = $(this).attr('title');
+			$(this).attr('title','');
+			var imgTitle = mytitle ? '<br />'+mytitle : '';
+			var $tooltips ='<div id="tooltips"><img src='+$(this).attr('href')+' alt="产品预览图" >'+ imgTitle +'</div';
+			$('body').append($tooltips);
+			$('#tooltips').css({
+				"left": (e.pageX + x) + "px",
+				"top" : (e.pageY + y) + "px" 
+			});
+			if(e.pageY > line) {
+				$('#tooltips').css("top" , (e.pageY + y - imgHeight + "px")).show('fast');
+			}
+		}).mouseout(function(){
+			var mytitle = $('#tooltips').text();
+			$(this).attr('title' , mytitle);
+			$('#tooltips').remove();
+		}).mousemove(function(e){
+			// if(e.pageY > 250) {
+			// 	$('#tooltips').css({
+			// 		"left": (e.pageX -200) + "px",
+			// 		"top" : (e.pageY + y - 270) + "px" 
+			// 	}).show('fast');
+			// 	//alert(e.pageY + y - 200);
+			// }else {
+			// 	$('#tooltips').css({
+			// 		"left": (e.pageX + x) + "px",
+			// 		"top" : (e.pageY + y) + "px" 
+			// 	});
+			// }
+			$('#tooltips').css({
+				"left": (e.pageX + x) + "px",
+				"top" : (e.pageY + y) + "px" 
+			});
+			if(e.pageY > line) {
+				$('#tooltips').css("top" , (e.pageY + y - imgHeight + "px")).show('fast');
+			}
+		})
+	});
+	// var t=$('.tooltips').eq(0);
+	// console.log(t.css('visibility')); //visible
+	// if(t.is(":visible")){
+	// 	console.log('success');
+	// }else {
+	// 	console.log('whywhy'); //?????
+	// }
+	// console.log($('#aa').css('visibility')); //visible
+	// if($('#aa').is(':visible')){
+	// 	console.log('why you can');
+	// }
+
+</script>
+</html>
